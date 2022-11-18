@@ -10,6 +10,11 @@ pipeline {
                 sh 'npm run build'
             }
         }
+        stage('deploy') {
+            steps {
+                sh 'npm run start'
+            }
+        }
         stage('publish') {
               steps {
                   archiveArtifacts artifacts: 'build/'

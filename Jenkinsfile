@@ -10,7 +10,7 @@ pipeline {
                 sh 'npm run build'
             }
         }
-        stage('publish){
+        stage('publish') {
               steps {
                   archiveArtifacts artifacts: 'build/'
               }

@@ -18,6 +18,7 @@ pipeline {
         stage('publish') {
               steps {
                   archiveArtifacts artifacts: 'build/'
+                  input message: 'Click "Proceed" to continue"
               }
         }
     }

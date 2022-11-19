@@ -15,10 +15,5 @@ pipeline {
                 sh 'npm run start'
             }
         }
-        stage('publish') {
-              steps {
-                  archiveArtifacts artifacts: 'build/'
-              }
-        }
     }
 }

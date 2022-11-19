@@ -16,5 +16,10 @@ pipeline {
                 sh 'serve -s build'
             }
         }
+        stage('publish') {
+              steps {
+                  archiveArtifacts artifacts: 'build/'
+              }
+        }
     }
 }

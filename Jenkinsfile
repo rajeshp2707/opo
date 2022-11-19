@@ -12,13 +12,12 @@ pipeline {
         }
         stage('deploy') {
             steps {
-                sh 'npm run start'
+                sh 'nohup npm start &'
             }
         }
         stage('publish') {
               steps {
                   archiveArtifacts artifacts: 'build/'
-                  input message: 'Click "Proceed" to continue'
               }
         }
     }

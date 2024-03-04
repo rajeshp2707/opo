@@ -3,11 +3,14 @@ pipeline {
     tools {
        nodejs "node"
     }
+    environment {
+            CI = 'true'
+        }
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
                 sh 'npm install'
-                sh 'npm run build'
+                
             }
         }
         stage('deploy') {

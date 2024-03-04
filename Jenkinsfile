@@ -11,6 +11,16 @@ pipeline {
                 sh 'npm run build'
             }
         }
-       
+        stage('deploy') {
+            steps {
+                sh 'npm install -g serve'
+                sh 'serve -s build'
+            }
+        }
+        stage('publish') {
+              steps {
+                  archiveArtifacts artifacts: 'build/'
+              }
+        }
     }
 }

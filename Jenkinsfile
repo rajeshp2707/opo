@@ -1,24 +1,30 @@
 pipeline {
     agent any
     tools {
-       nodejs "node"
+        nodejs "node"
     }
-    environment {
-        CI = 'false'          
+ environment {
+        CI = 'true'
     }
     stages {
         stage('Build') {
             steps {
-                  sh 'npm install'
-            
+                sh 'npm install'
             }
         }
-         stage('deploy') {
+        stage('Test') {
             steps {
-                echo 'asc'
+                sh './public/test.sh'
             }
         }
-        
+        stage('Deliver') {
+            steps {
+                sh './public/deliver.sh'
+                input message: 'Finished using the web site? (Click "Proceed" to continue)'
+                sh './public/kill.sh'
+            }
+        }
        
+    }   
     }
 }

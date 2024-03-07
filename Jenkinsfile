@@ -1,12 +1,5 @@
 pipeline {
-    tools {
-        nodejs "node"
-    }
     agent any
-    
- environment {
-        CI = 'true'
-    }
     stages {
         stage('Build') {
             steps {
@@ -15,16 +8,16 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh './public/test.sh'
+                sh './jenkins/scripts/test.sh'
             }
         }
-        stage('Deliver') {
+        stage('Deliver') { 
             steps {
-                sh './public/deliver.sh'
-                input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                sh './public/kill.sh'
+                sh './jenkins/scripts/deliver.sh' 
+                input message: 'Finished using the web site? (Click "Proceed" to continue)' 
+                sh './jenkins/scripts/kill.sh' 
             }
         }
-        }   
     }
+}
 

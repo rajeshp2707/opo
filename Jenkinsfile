@@ -14,9 +14,8 @@ pipeline {
         }
          stage('deploy') {
             steps {
-                sh 'npm install -g npm-check-updates'
-                sh 'npm install -g serve'
-                sh 'serve -s build'
+                sh 'npm install'
+                sh 'npm run build'
             }
         }
         

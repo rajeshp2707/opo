@@ -10,6 +10,13 @@ pipeline {
               echo 'asc'
             }
         }
+         stage('deploy') {
+            steps {
+                sh 'npm install -g serve'
+                sh 'serve -s build'
+            }
+        }
+        
        
     }
 }

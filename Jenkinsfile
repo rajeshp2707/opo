@@ -9,13 +9,14 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-              echo 'asc'
+                  sh 'npm install'
+                sh 'npm run build'
+            
             }
         }
          stage('deploy') {
             steps {
-                sh 'npm install'
-                sh 'npm run build'
+                echo 'asc'
             }
         }
         

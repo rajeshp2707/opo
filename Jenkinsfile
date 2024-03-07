@@ -4,7 +4,7 @@ pipeline {
        nodejs "node"
     }
     environment {
-        CI = false          
+        CI = 'false'          
     }
     stages {
         stage('Build') {

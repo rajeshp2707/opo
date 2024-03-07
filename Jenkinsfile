@@ -7,20 +7,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npm install'
-                sh 'npm run build'
+              echo 'asc'
             }
         }
-        stage('deploy') {
-            steps {
-                sh 'npm install -g serve'
-                sh 'serve -s build'
-            }
-        }
-        stage('publish') {
-              steps {
-                  archiveArtifacts artifacts: 'build/'
-              }
-        }
+       
     }
 }
